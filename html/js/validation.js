@@ -4,6 +4,7 @@
         sampleNumbers ="0123456789"
         sampleSpecial ="#\\|*&%^$£"
         samplecharacters="abcdefghijklmnopqrstuvwxyz"
+        othercharacters="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         function checkpassword(password, regular) {
             for(i =0;i<regular.length;i++){
                 if(password.includes(regular[i])){
@@ -18,11 +19,14 @@
             if (password==""){
                 par.innerHTML="password is required"
             }
-            else if(checkpassword(password, sampleNumbers) && checkpassword(password, sampleSpecial)&& checkpassword(password,samplecharacters)){
+            else if(checkpassword(password, sampleNumbers) && checkpassword(password, sampleSpecial)&& checkpassword(password,samplecharacters)&&checkpassword(password,othercharacters)){
                 par.innerHTML="welcome"
             }else if(password.length<8){
                  par.innerHTML="add more characters"
-            }else{ 
+            }else if(!checkpassword(password,othercharacters)){
+                par.innerHTML="add uppercase characters"
+            }
+            else{ 
                 par.innerHTML="password must contain one special character and atleat one number"
             }
         }
