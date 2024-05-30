@@ -1,17 +1,14 @@
 {
-    function sumAsync(x, y,sum){
+    function sumAsync(x, y,sumation){
         sum = x + y;
+         sumation(sum)
+    }
+    function outcome(){
+     setTimeout(()=>{
         console.log(sum)
-    }
-    function outcome(result){
-        console.log(result)
-        
-    }
-    console.log(outcome)
-        setTimeout(function(){
-            console.log(outcome)
-        },5000)
-         sumAsync(5,5,outcome)
+    },5000);
+ }
+ sumAsync(5,5,outcome)
 }
 
 
